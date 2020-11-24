@@ -146,13 +146,14 @@ export class FlowsService {
         this.loggerService.logDebug('RefreshSession created. adding myautostate: ' + stateData);
         const refreshToken = this.authStateService.getRefreshToken();
         const idToken = this.authStateService.getIdToken();
+        const sessionState = this.flowsDataService.getSessionState();
 
         if (refreshToken) {
             const callbackContext = {
                 code: null,
                 refreshToken,
                 state: stateData,
-                sessionState: null,
+                sessionState,
                 authResult: null,
                 isRenewProcess: true,
                 jwtKeys: null,
@@ -191,6 +192,7 @@ export class FlowsService {
                 let authResult: any = new Object();
                 authResult = response;
                 authResult.state = callbackContext.state;
+                authResult.session_state = callbackContext.sessionState;
 
                 callbackContext.authResult = authResult;
                 return of(callbackContext);

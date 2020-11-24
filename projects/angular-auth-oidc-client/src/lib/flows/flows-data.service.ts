@@ -33,6 +33,10 @@ export class FlowsDataService {
         return state;
     }
 
+    getSessionState(): any {
+        return this.storagePersistanceService.read('session_state');
+    }
+
     setSessionState(sessionState: any) {
         this.storagePersistanceService.write('session_state', sessionState);
     }

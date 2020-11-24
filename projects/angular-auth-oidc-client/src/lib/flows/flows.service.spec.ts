@@ -264,12 +264,13 @@ describe('Flows Service', () => {
             spyOn(flowsDataService, 'getExistingOrCreateAuthStateControl').and.returnValue('state-data');
             spyOn(authStateService, 'getRefreshToken').and.returnValue('henlo-furiend');
             spyOn(authStateService, 'getIdToken').and.returnValue('henlo-legger');
+            spyOn(flowsDataService, 'getSessionState').and.returnValue('session-state');
 
             const expectedCallbackContext = {
                 code: null,
                 refreshToken: 'henlo-furiend',
                 state: 'state-data',
-                sessionState: null,
+                sessionState: 'session-state',
                 authResult: null,
                 isRenewProcess: true,
                 jwtKeys: null,

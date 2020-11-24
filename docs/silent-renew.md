@@ -32,7 +32,7 @@ Both the access token and the id_token are used to start this process.
 
 ## Silent Renew Code Flow with PKCE with refresh tokens
 
-No iframes are used for this flow, the the renew only needs to be configured in the app module.
+No iframes are used for this flow, the renew only needs to be configured in the app module.
 
 ## Silent Renew Implicit Flow
 

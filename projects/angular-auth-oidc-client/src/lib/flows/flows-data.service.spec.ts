@@ -83,6 +83,17 @@ describe('Flows Data Service', () => {
         });
     });
 
+    describe('getSessionState', () => {
+        it('getSessionState returns the value from the storage', () => {
+            const spy = spyOn(storagePersistanceService, 'read').withArgs('session_state').and.returnValue('Genesis');
+
+            const result = service.getSessionState();
+
+            expect(result).toBe('Genesis');
+            expect(spy).toHaveBeenCalledWith('session_state');
+        });
+    });
+
     describe('setSessionState', () => {
         it('setSessionState saves the value in the storage', () => {
             const spy = spyOn(storagePersistanceService, 'write');

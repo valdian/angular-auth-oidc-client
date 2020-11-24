@@ -17,6 +17,8 @@ export class FlowsDataServiceMock {
 
     setSessionState(sessionState: any) {}
 
+    getSessionState() {}
+
     resetStorageFlowData() {}
 
     getCodeVerifier() {}
